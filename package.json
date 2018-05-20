@@ -1,0 +1,39 @@
+{
+  "name": "janki",
+  "version": "1.0.0",
+  "description": "janki ('James Anki') - An SRL Flashcards App",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --config config/webpack.config.js --content-base dist/"
+  },
+  "keywords": [
+    "anki",
+    "SRL",
+    "spaced repetition learning",
+    "flashcard",
+    "memorization",
+    "learning"
+  ],
+  "author": "James Lawson <jameslawson@users.noreply.github.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@cycle/dom": "^20.4.0",
+    "@cycle/run": "^4.1.0",
+    "array-permutation": "^0.2.0",
+    "immutable": "^3.8.2",
+    "lodash": "^4.17.10",
+    "lodash.compose": "^2.4.1",
+    "lodash.flatten": "^4.4.0",
+    "xstream": "^11.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4"
+  }
+}

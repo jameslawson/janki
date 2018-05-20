@@ -1,0 +1,15 @@
+{
+  "name": "AWS Certified Solutions Architect 2018",
+  "cards": [{
+    "type": "mc1",
+    "question": "You have a business-to-business web application running in a VPC consisting of an Elastic Load Balancer (ELB), web servers, application servers and a database. Your web application should only accept traffic from predefined customer IP addresses. Which two options meet this security requirement? Choose 2 answers",
+    "correct": [
+      "Configure your web servers to filter traffic based on the ELB’s “X-forwarded-for” header",
+      "Configure ELB security groups to allow traffic from your customers’ IPs and deny all outbound traffic"
+    ],
+    "incorrect": [
+      "Configure web server VPC security groups to allow traffic from your customers’ IPs (Web server is behind the ELB and customer IPs will never reach web servers)",
+      "Configure a VPC NACL to allow web traffic from your customers’ IPs and deny all outbound traffic"
+    ]
+  }]
+}
