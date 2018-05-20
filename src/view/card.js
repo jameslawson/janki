@@ -6,8 +6,6 @@ import { random } from 'array-permutation';
 const mapWithIndex = map.convert({ cap: false });
 
 function render(card) {
-  console.log('card = ', card);
-
   const renderChoice = ({ text, index, originalIndex, selected }) => {
     const className = `.choice${ selected ? '.choice--selected' : '' }`;
     const attrs = { 'data-original-index': originalIndex, 'data-index': index, type: 'button' };

@@ -86,35 +86,32 @@ function main({ DOM }) {
 
   const choiceToggle$ = choiceClick$.map(e => e.currentTarget.attributes['data-index'].value);
   const choiceToggleReducer$ = choiceToggle$.map(choiceIndex => state => {
-    function updateNextSelectedCount(state) {
+      const answerSubmitted = state.get('answerSubmitted');
+      if (answerSubmitted) { return state; }
+
       const currentIndex = state.get('currentCardIndex');
       const path = ['cards', currentIndex, 'choices', choiceIndex, 'selected'];
       const numChoicesInAnswer = state.getIn(['cards', currentIndex, 'numChoicesInAnswer']);
       const isSelected = state.getIn(path);
       const nextSelectedCount = state.get('selectedCount') + (isSelected ? -1 : 1);
-      const answerSubmitted = (nextSelectedCount >= numChoicesInAnswer) ? true : false;
-      return state
+      const answerSubmittedNext = (nextSelectedCount >= numChoicesInAnswer) ? true : false;
+      const stateWithSelection = state
         .setIn(path, !isSelected)
         .set('selectedCount', nextSelectedCount)
-        .set('answerSubmitted', answerSubmitted);
-    }
-    function updateAnswerSubmitted(state) {
-      const index = state.get('currentCardIndex');
-      const answerSubmitted = state.get('answerSubmitted');
-      if (answerSubmitted) {
-        const selected = state.getIn(['cards', index, 'choices']).filter(choice => choice.get('selected'));
+        .set('answerSubmitted', answerSubmittedNext);
+
+      if (!answerSubmitted && answerSubmittedNext) {
+        const selected = state.getIn(['cards', currentIndex, 'choices']).filter(choice => choice.get('selected'));
         const isCorrectAnswer = selected.every(choice => choice.get('isCorrect'));
-        const quizFinished = index === state.get('totalCards') - 1;
-        return state
+        const quizFinished = currentIndex === state.get('totalCards') - 1;
+        return stateWithSelection
           .set('isCorrectAnswer', isCorrectAnswer)
           .set('quizFinished', quizFinished)
           .update('correctAnswersTotal', total => total + (isCorrectAnswer ? 1 : 0))
           .update('incorrectAnswersTotal', total => total + (!isCorrectAnswer ? 1 : 0))
       } else {
-        return state;
+        return stateWithSelection;
       }
-    }
-    return compose(updateAnswerSubmitted, updateNextSelectedCount)(state);
   });
 
   const reducers$ = xs.merge(
@@ -166,7 +163,7 @@ function main({ DOM }) {
           } else {
             const correct = state.get('correctAnswersTotal');
             const incorrect = state.get('incorrectAnswersTotal');
-            const percentage = Math.floor((correct / incorrect) * 100);
+            const percentage = Math.floor((correct / state.get('totalCards')) * 100);
             return div('.results', [
               h2('Results'),
               div('.results__percentage', `${percentage}%`),
