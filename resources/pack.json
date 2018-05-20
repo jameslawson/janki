@@ -1,5 +1,6 @@
 {
-  "name": "AWS Certified Solutions Architect 2018",
+  "name": "AWS Certified Solutions Architect 2018 - VPC (Exam-style Questions)",
+  "description": "Topics: VPC, Subnets, ACLs, Security Groups",
   "cards": [{
     "type": "mc1",
     "question": "You have a business-to-business web application running in a VPC consisting of an Elastic Load Balancer (ELB), web servers, application servers and a database. Your web application should only accept traffic from predefined customer IP addresses. Which two options meet this security requirement? Choose 2 answers",
@@ -26,6 +27,18 @@
   },
   {
     "type": "mc1",
+    "question": "A user has launched an EC2 instance and installed a website with the Apache webserver. The webserver is running but the user is not able to access the website from the Internet. What can be the possible reason for this failure?",
+    "correct": [
+      "The security group of the instance is not configured properly."
+    ],
+    "incorrect": [
+      "The instance is not configured with the proper key-pairs.",
+      "The Apache website cannot be accessed from the Internet.",
+      "Instance is not configured with an elastic IP."
+    ]
+  },
+  {
+    "type": "mc1",
     "question": "A user has created a VPC with two subnets: one public and one private. The user is planning to run the patch update for the instances in the private subnet. How can the instances in the private subnet connect to the internet?",
     "correct": [
       "Use NAT with an elastic IP"
@@ -35,5 +48,115 @@
       "Allow outbound traffic in the security group for port 80 to allow internet updates",
       "The private subnet can never connect to the internet"
     ]
-  }]
+  },
+  {
+    "type": "mc1",
+    "question": "A user has created a VPC with public and private subnets using the VPC wizard. Which of the below mentioned statements is true in this scenario?",
+    "correct": [
+      "VPC bounds the main route table with a private subnet and a custom route table with a public subnet"
+    ],
+    "incorrect": [
+      "AWS VPC will automatically create a NAT instance with the micro size",
+      "User has to manually create a NAT instance",
+      "VPC bounds the main route table with a public subnet and a custom route table with a private subnet"
+    ]
+  },
+  {
+    "type": "mc1",
+    "question": "A user has created a VPC with public and private subnets. The VPC has CIDR 20.0.0.0/16. The private subnet uses CIDR 20.0.1.0/24 and the public subnet uses CIDR 20.0.0.0/24. The user is planning to host a web server in the public subnet (port 80) and a DB server in the private subnet (port 3306). The user is configuring a security group of the NAT instance. Which of the below mentioned entries is not required for the NAT security group?",
+    "correct": [
+      "For Inbound allow Source: 20.0.0.0/24 on port 80"
+    ],
+    "incorrect": [
+      "For Inbound allow Source: 20.0.1.0/24 on port 80",
+      "For Outbound allow Destination: 0.0.0.0/0 on port 80",
+      "For Outbound allow Destination: 0.0.0.0/0 on port 443"
+    ]
+  },
+  {
+    "type": "mc1",
+    "question": "A user has created a VPC with the public and private subnets using the VPC wizard. The VPC has CIDR 20.0.0.0/16. The public subnet uses CIDR 20.0.1.0/24. The user is planning to host a web server in the public subnet (port 80) and a DB server in the private subnet (port 3306). The user is configuring a security group for the public subnet (WebSecGrp) and the private subnet (DBSecGrp). Which of the below mentioned entries is required in the web server security group (WebSecGrp)?",
+    "correct": [
+      "For Inbound allow Source: 20.0.0.0/24 on port 80"
+    ],
+    "incorrect": [
+      "Configure port 80 for Destination 0.0.0.0/0 Outbound",
+      "Configure port 3306 for source 20.0.0.0/24 InBound",
+      "Configure port 80 InBound for source 20.0.0.0/16"
+    ]
+  },
+  {
+    "type": "mc1",
+    "question": "A user has setup a VPC with CIDR 20.0.0.0/16. The VPC has a private subnet (20.0.1.0/24) and a public subnet (20.0.0.0/24). The user’s data centre has CIDR of 20.0.54.0/24 and 20.1.0.0/24. If the private subnet wants to communicate with the data centre, what will happen?",
+    "correct": [
+      "It will allow traffic with data centre on CIDR 20.1.0.0/24 but does not allow on 20.0.54.0/24 "
+    ],
+    "incorrect": [
+      "It will allow traffic communication on both the CIDRs of the data centre",
+      "It will not allow traffic with data centre on CIDR 20.1.0.0/24 but allows traffic communication on 20.0.54.0/24",
+      "It will not allow traffic communication on any of the data centre CIDRs"
+    ],
+    "explanation": "as the CIDR block would be overlapping"
+  },
+  {
+    "type": "mc1",
+    "question": "A user has created a VPC with public and private subnets using the VPC wizard. The VPC has CIDR 20.0.0.0/16. The private subnet uses CIDR 20.0.0.0/24 . The NAT instance ID is i-a12345. Which of the below mentioned entries are required in the main route table attached with the private subnet to allow instances to connect with the internet?",
+    "correct": [
+      "Destination: 0.0.0.0/0 and Target: i-a12345"
+    ],
+    "incorrect": [
+      "Destination: 20.0.0.0/0 and Target: 80",
+      "Destination: 20.0.0.0/0 and Target: i-a12345",
+      "Destination: 20.0.0.0/24 and Target: i-a12345"
+    ]
+  },
+  {
+    "type": "mc1",
+    "question": "A user has created a VPC with CIDR 20.0.0.0/16 using the wizard. The user has created a public subnet CIDR (20.0.0.0/24) and VPN only subnets CIDR (20.0.1.0/24) along with the VPN gateway (vgw-12345) to connect to the user’s data centre. The user’s data centre has CIDR 172.28.0.0/12. The user has also setup a NAT instance (i-123456) to allow traffic to the internet from the VPN subnet. Which of the below mentioned options is not a valid entry for the main route table in this scenario?",
+    "correct": [
+      "Destination: 20.0.1.0/24 and Target: i-12345"
+    ],
+    "incorrect": [
+      "Destination: 0.0.0.0/0 and Target: i-12345",
+      "Destination: 172.28.0.0/12 and Target: vgw-12345",
+      "Destination: 20.0.0.0/16 and Target: local"
+    ]
+  },
+  {
+    "type": "mc1",
+    "question": "A user has created a VPC with CIDR 20.0.0.0/16. The user has created one subnet with CIDR 20.0.0.0/16 in this VPC. The user is trying to create another subnet with the same VPC for CIDR 20.0.0.1/24. What will happen in this scenario?",
+    "correct": [
+      "It will throw a CIDR overlaps error"
+    ],
+    "incorrect": [
+      "The VPC will modify the first subnet CIDR automatically to allow the second subnet IP range",
+      "It is not possible to create a subnet with the same CIDR as VPC",
+      "The second subnet will be created"
+    ]
+  },
+  {
+    "type": "mc1",
+    "question": "A user has created a VPC with CIDR 20.0.0.0/16 using the wizard. The user has created both Public and VPN-Only subnets along with hardware VPN access to connect to the user’s data centre. The user has not yet launched any instance as well as modified or deleted any setup. He wants to delete this VPC from the console. Will the console allow the user to delete the VPC?",
+    "correct": [
+      "Yes, the console will delete all the setups and detach the virtual private gateway"
+    ],
+    "incorrect": [
+      "Yes, the console will delete all the setups and also delete the virtual private gateway",
+      "No, the console will ask the user to manually detach the virtual private gateway first and then allow deleting the VPC",
+      "No, since the NAT instance is running"
+    ]
+  },
+  {
+    "type": "mc1",
+    "question": "A user has created a VPC with the public and private subnets using the VPC wizard. The VPC has CIDR 20.0.0.0/16. The public subnet uses CIDR 20.0.1.0/24. The user is planning to host a web server in the public subnet (port 80) and a DB server in the private subnet (port 3306). The user is configuring a security group for the public subnet (WebSecGrp) and the private subnet (DBSecGrp). Which of the below mentioned entries is required in the private subnet database security group (DBSecGrp)?",
+    "correct": [
+      "Allow Inbound on port 3306 for Source Web Server Security Group (WebSecGrp) "
+    ],
+    "incorrect": [
+      "Allow Inbound on port 3306 from source 20.0.0.0/16",
+      "Allow Outbound on port 3306 for Destination Web Server Security Group (WebSecGrp)",
+      "Allow Outbound on port 80 for Destination NAT Instance IP"
+    ]
+  }
+  ]
 }
