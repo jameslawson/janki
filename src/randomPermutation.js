@@ -1,3 +1,0 @@
-
-function randomPermutation(x) {
-}
