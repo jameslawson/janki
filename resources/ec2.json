@@ -1,0 +1,35 @@
+{
+  "name": "AWS Certified Solutions Architect 2018 - EC2 (Practice Questions)",
+  "description": "EBS, Volumes, Snapshops, AMIs",
+  "cards": [{
+    "type": "mc1",
+    "question": "Snapshots of encrypted volumes are encrypted automatically",
+    "correct": [ "True"],
+    "incorrect": [ "False" ]
+  },
+  {
+    "type": "mc1",
+    "question": "Volumes restores from encrypted snapshots are encrypted automatically.",
+    "correct": [ "True"],
+    "incorrect": [ "False" ]
+  },
+  {
+    "type": "mc1",
+    "question": "You can share encrypted snapshots.",
+    "correct": [ "True"],
+    "incorrect": [ "False" ]
+  },
+  {
+    "type": "mc1",
+    "question": "One account can share a snapshot with another account",
+    "correct": [ "True"],
+    "incorrect": [ "False" ]
+  },
+  {
+    "type": "mc1",
+    "question": "A snapshot created in an AWS account can be shared with the public",
+    "correct": [ "True"],
+    "incorrect": [ "False" ]
+  }
+  ]
+}
