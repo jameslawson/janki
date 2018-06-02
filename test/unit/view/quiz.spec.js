@@ -1,4 +1,3 @@
-import { List } from 'immutable';
 import { div } from '@cycle/dom';
 import { State } from '../../../src/model/domain/index' ;
 import quizView from '../../../src/view/quiz';

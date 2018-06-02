@@ -30,7 +30,7 @@ const startQuizReducer = _ => state => {
       });
     }
 
-    const packCards = [pack.cards[0], pack.cards[1], pack.cards[2]];
+    const packCards = [ pack.cards[0], pack.cards[1], pack.cards[2] ];
     const cards = List(map(createCardFromPack)(packCards));
 
     return state

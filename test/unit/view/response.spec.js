@@ -1,4 +1,3 @@
-import { List } from 'immutable';
 import { State } from '../../../src/model/domain/index' ;
 import responseView from '../../../src/view/response';
 
