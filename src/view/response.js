@@ -1,13 +1,10 @@
 import { div } from '@cycle/dom';
 
 function response(state) {
-  if (state.get('answerSubmitted')) {
-    const correct = state.get('isCorrectAnswer');
-    return div([
-      div(`you got the answer ${correct ? 'Right!' : 'Wrong!'}`)
-    ]);
-  }
-  return div();
+  const correct = state.get('isCorrectAnswer');
+  const submittedText = `you got the answer ${correct ? 'Right!' : 'Wrong!'}`
+  const text = state.get('answerSubmitted') ? submittedText : '';
+  return div('.response', text)
 }
 
 export default response;

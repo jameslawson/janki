@@ -7,8 +7,8 @@ function results(state) {
   return div('.results', [
     h2('Results'),
     div('.results__percentage', `${percentage}%`),
-    div(`Total correct = ${correct}`),
-    div(`Total incorrect = ${incorrect}`)
+    div('.results__correct', `Total correct = ${correct}`),
+    div('.results__incorrect', `Total incorrect = ${incorrect}`)
   ]);
 }
 
