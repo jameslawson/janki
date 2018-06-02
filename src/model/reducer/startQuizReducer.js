@@ -2,7 +2,7 @@ import map from 'lodash/fp/map';
 import { random } from 'array-permutation';
 import flatten from 'lodash.flatten';
 import compose from 'lodash.compose';
-import pack from '../../../resources/pack.json';
+import pack from '../../resources/pack.json';
 import { Choice, Card } from '../domain/index';
 import { List } from 'immutable';
 
