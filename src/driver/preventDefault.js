@@ -1,7 +1,7 @@
 function makePreventDefaultDriver() {
   function preventDefaultDriver(event$) {
     return event$.map(event => {
-      console.log('hello!');
+      // console.log('hello!');
       event.preventDefault();
       return true;
     });

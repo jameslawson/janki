@@ -21,10 +21,10 @@ const choiceToggleReducer = choiceIndex => state => {
         .set('isCorrectAnswer', isCorrectAnswer)
         .set('quizFinished', quizFinished)
         .update('correctAnswersTotal', total => total + (isCorrectAnswer ? 1 : 0))
-        .update('incorrectAnswersTotal', total => total + (!isCorrectAnswer ? 1 : 0))
+        .update('incorrectAnswersTotal', total => total + (!isCorrectAnswer ? 1 : 0));
     } else {
       return stateWithSelection;
     }
-}
+};
 
 export default choiceToggleReducer;

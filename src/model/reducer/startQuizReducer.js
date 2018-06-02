@@ -22,7 +22,7 @@ const startQuizReducer = _ => state => {
       )([
         incorrect.map(addTextAndIsCorrect(false)),
         correct.map(addTextAndIsCorrect(true))
-      ])
+      ]);
       return new Card({
         question,
         choices: List(choices),

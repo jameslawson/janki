@@ -1,4 +1,4 @@
-import { h1, h2, div, ol, li, button } from '@cycle/dom';
+import { div, h2 } from '@cycle/dom';
 
 function results(state) {
   const correct = state.get('correctAnswersTotal');

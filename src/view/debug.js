@@ -1,4 +1,4 @@
-import { h1, div, ol, li, button } from '@cycle/dom';
+import { div } from '@cycle/dom';
 
 function render(state) {
   return div('debug', [
@@ -9,7 +9,7 @@ function render(state) {
     div('selectedCount = ' + state.get('selectedCount')),
     div('answerSubmitted = ' + state.get('answerSubmitted')),
     div('correctAnswersTotal = ' + state.get('correctAnswersTotal')),
-    div('incorrectAnswersTotal = ' + state.get('incorrectAnswersTotal')),
+    div('incorrectAnswersTotal = ' + state.get('incorrectAnswersTotal'))
   ]);
 }
 

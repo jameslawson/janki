@@ -13,5 +13,5 @@ function main(sources) {
 }
 
 run(main, {
-  DOM: makeDOMDriver('#app'),
+  DOM: makeDOMDriver('#app')
 });

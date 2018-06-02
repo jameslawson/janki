@@ -1,6 +1,6 @@
 import { h1, div, hr } from '@cycle/dom';
 import quiz from './quiz';
-import debug from './debug';
+// import debug from './debug';
 
 function view(state$) {
   return state$.map(state =>
@@ -9,7 +9,7 @@ function view(state$) {
       // debugView(state),
       hr(),
       quiz(state)
-  ]))
+  ]));
 }
 
 export default view;
