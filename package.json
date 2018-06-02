@@ -4,8 +4,11 @@
   "description": "janki ('James Anki') - An SRL Flashcards App",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --config config/webpack.config.js --content-base dist/"
+    "start": "webpack-dev-server --mode development --config config/webpack.config.js --content-base dist/",
+    "lint": "eslint ."
   },
+  "author": "James Lawson <jameslawson@users.noreply.github.com>",
+  "license": "Apache-2.0",
   "keywords": [
     "anki",
     "SRL",
@@ -14,8 +17,6 @@
     "memorization",
     "learning"
   ],
-  "author": "James Lawson <jameslawson@users.noreply.github.com>",
-  "license": "Apache-2.0",
   "dependencies": {
     "@cycle/dom": "^20.4.0",
     "@cycle/run": "^4.1.0",
@@ -34,6 +35,12 @@
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.4",
+    "eslint": "^4.11.0",
+    "eslint-config-janki": "^1.0.0",
+    "eslint-plugin-mocha": "^4.9.0"
+  },
+  "eslintConfig": {
+    "extends": "janki"
   }
 }
