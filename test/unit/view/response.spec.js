@@ -16,5 +16,5 @@ test('should tell the user that they are incorrect', () => {
 });
 
 test('should not show anything if the answer has not been submitted', () => {
-  expect(responseView(notSubmitted)).to.have.text.that.is.empty;
+  expect(responseView(notSubmitted)).to.have.text.that.includes('Choose Below');
 });
