@@ -5,9 +5,8 @@ import quiz from './quiz';
 function view(state$) {
   return state$.map(state =>
     div('.janki', [
-      h1('j-anki'),
+      h1('janki'),
       // debugView(state),
-      hr(),
       quiz(state)
   ]));
 }

@@ -8,11 +8,11 @@ const notSubmitted = new State({ 'answerSubmitted': false });
 suite('responseView');
 
 test('should tell the user that they are correct', () => {
-  expect(responseView(correct)).to.have.text.that.includes('Right!');
+  expect(responseView(correct)).to.have.text.that.includes('Correct');
 });
 
 test('should tell the user that they are incorrect', () => {
-  expect(responseView(incorrect)).to.have.text.that.includes('Wrong!');
+  expect(responseView(incorrect)).to.have.text.that.includes('Wrong');
 });
 
 test('should not show anything if the answer has not been submitted', () => {

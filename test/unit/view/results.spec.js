@@ -20,10 +20,10 @@ test('should contain a percentage', () => {
 
 test('should show the total correct answers', () => {
   expect(resultsView(state)).to.have.a.subtree.with.tag('div').with.class('results__correct').inside;
-  expect(resultsView(state)).at.root('results__correct').to.have.text.that.includes('60');
+  expect(resultsView(state)).at.root('results__correct__integer').to.have.text.that.includes('60');
 });
 
 test('should show the total incorrect answers', () => {
   expect(resultsView(state)).to.have.a.subtree.with.tag('div').with.class('results__incorrect').inside;
-  expect(resultsView(state)).at.root('results__incorrect').to.have.text.that.includes('40');
+  expect(resultsView(state)).at.root('results__incorrect__integer').to.have.text.that.includes('40');
 });

@@ -4,6 +4,7 @@ import { run } from '@cycle/run';
 import intent from './intent/index';
 import model from './model/index';
 import view from './view/index';
+import './resources/scss/index.scss';
 
 function main(sources) {
   const actions = intent(sources);

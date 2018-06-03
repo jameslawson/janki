@@ -9,7 +9,7 @@
       "Configure ELB security groups to allow traffic from your customers’ IPs and deny all outbound traffic"
     ],
     "incorrect": [
-      "Configure web server VPC security groups to allow traffic from your customers’ IPs (Web server is behind the ELB and customer IPs will never reach web servers)",
+      "Configure web server VPC security groups to allow traffic from your customers’ IPs",
       "Configure a VPC NACL to allow web traffic from your customers’ IPs and deny all outbound traffic"
     ]
   },

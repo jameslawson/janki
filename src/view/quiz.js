@@ -6,12 +6,14 @@ import navigation from './navigation';
 
 function quiz(state) {
   if (!state.get('quizStarted')) {
-    return button('.start', 'Start Quiz');
+    return button('.start.button.button--standard', 'Start Quiz');
   } else if (!state.get('showingQuizResults')) {
-    return div([
+    return div('.quiz', [
       card(state),
       response(state),
-      navigation(state)
+      div('.quiz__navigation', [
+        navigation(state)
+      ])
     ]);
   } else {
     return results(state);

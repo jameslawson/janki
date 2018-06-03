@@ -1,14 +1,20 @@
-import { div, h2 } from '@cycle/dom';
+import { div, h2, span } from '@cycle/dom';
 
 function results(state) {
   const correct = state.get('correctAnswersTotal');
   const incorrect = state.get('incorrectAnswersTotal');
   const percentage = Math.floor((correct / state.get('totalCards')) * 100);
   return div('.results', [
-    h2('Results'),
+    h2('.results__heading', 'Results'),
     div('.results__percentage', `${percentage}%`),
-    div('.results__correct', `Total correct = ${correct}`),
-    div('.results__incorrect', `Total incorrect = ${incorrect}`)
+    div('.results__correct', [
+      'Correct',
+      span('.results__correct__integer', correct.toString())
+    ]),
+    div('.results__incorrect', [
+      'Incorrect',
+      span('.results__incorrect__integer', incorrect.toString())
+    ])
   ]);
 }
 
